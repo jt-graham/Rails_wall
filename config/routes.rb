@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  # Using a mixture of RESTful routes and non-RESTful routes ...
+  # Makes it a little confusing for other developers
   post 'messages/create'
   post 'messages/create_comment'
   get 'messages/delete'
-
+  # It's a good idea to have one controller for each model
+  # (post 'messages' => 'messages#create')
+  # (post 'comments' => 'comments#create')
   root 'users#index'
   post 'users/login'
   get 'users/main'
